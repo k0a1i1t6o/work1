@@ -1,0 +1,8 @@
+<%= form_with(model: [goalpost, comment] ) do |form| %>
+  <div>
+    <%= form.text_area :content, class:"mx-0 textarea" %>
+  </div>
+  <div class="actions">
+    <%= form.submit "コメントをする", class:"btn btn-a mb-4", style:"width: 90%;" %>
+  </div>
+<% end %>

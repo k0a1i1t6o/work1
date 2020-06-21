@@ -1,0 +1,29 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-img{
+    background-color: white;
+    width: 70px;
+    height: 70px;
+}
+
+.section-title hr{
+    border-color: #fcac45;
+    border-width: 4px;
+    width: 60px;
+  }
+
+li > .active{
+    border-bottom: none !important;
+    border-top: 3px solid #fcac45 !important;
+    border-radius: 0 !important;
+}
+
+.nav-item:hover{
+    cursor: pointer;
+}
+
+li > .active:hover{
+    cursor: default;
+}

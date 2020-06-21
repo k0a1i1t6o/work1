@@ -1,0 +1,84 @@
+// Place all the styles related to the Goalposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+#form{
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    display: none;
+    z-index: 1000;
+    top:0;
+    left:0;
+}
+
+#search_result{
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    display: none;
+    z-index: 1000;
+    top:0;
+    left:0;
+}
+
+#r_select{
+    border-radius: 4px;
+}
+
+.close-btn{
+    font-family: 'Nothing You Could Do', cursive;
+    position: absolute;
+    font-size: 30px;
+    right: 80px;
+    top: 20px;
+    color: rgb(206, 203, 203);
+}
+
+.close-btn:hover{
+	cursor: pointer;
+	color: black;
+}
+
+.box{
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    overflow: scroll;
+}
+
+#search{
+    margin: 30px auto;
+    width: 160px;
+    color: white;
+}
+
+#item_name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked + label {
+    border-radius: 4px;
+    outline: 2px #bbb solid;
+}
+
+.g-tbody th{
+    background-color: #fafafa;
+}
+
+td a{
+    color: initial;
+}
+
+td a:hover{
+    color: #fcac45;
+    text-decoration: none;
+}

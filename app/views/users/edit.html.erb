@@ -1,0 +1,55 @@
+<% provide(:title, "会員情報編集") %>
+<% breadcrumb :edit_user, @user %>
+
+<div class="pb-5 text-center" >
+    <div class="container">
+        <div class="w-75 mx-auto">
+        <div class="col-md-12 text-center">
+          <div class="section-title">
+            <h3>会員情報編集</h3>
+            <hr>
+          </div>
+        </div>        
+        <div class="mx-auto py-3 col-lg-6 col-10">
+            <div class="text-left">
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages' %>
+                <div class="py-3">
+                    <%= f.label :name, "ニックネーム" %>
+                    <%= f.text_field :name, class: "form-control", placeholder: "例) もっちー" %>
+                </div>
+                <div class="py-3">
+                    <span class="picture">
+                        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+                    </span>
+                </div>
+                <div class="py-3">
+                    <%= f.label :email, "メールアドレス"%>
+                    <%= f.email_field :email, class: "form-control", placeholder: "PC・携帯どちらでも可" %>
+                </div>
+                <div class="py-3">
+                    <%= f.label :password, "パスワード" %>
+                    <%= f.password_field :password, class: "form-control", placeholder: "6文字以上" %>
+                </div>
+                <div class="py-3">
+                    <%= f.label :password_confirmation, "パスワード(確認)" %>
+                    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "6文字以上" %>
+                </div>
+                <div class="py-3" style="text-align: center">
+                <%= f.submit "保存する", class: "btn mx-auto w-50", style: "background-color: sandybrown"%>
+                </div>
+            <% end %>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#goalpost_picture').bind('change', function() {
+        var size_in_megabytes = this.files[0].size/1024/1024;
+        if (size_in_megabytes > 5) {
+        alert('Maximum file size is 5MB. Please choose a smaller file.');
+        }
+    });
+</script>

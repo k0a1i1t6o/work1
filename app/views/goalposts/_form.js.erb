@@ -1,0 +1,17 @@
+$('#result').html("<%= escape_javascript(render 'search_result') %>");
+
+$(".close-btn").click(function(){
+    $("#search_result").fadeOut("slow");
+    //背景固定を解除する
+    releaseScrolling();    
+});
+
+//背景固定解除
+function releaseScrolling(){
+    $('html').css({
+        'position': 'relative',
+        'width': '',
+        'top': ''
+    });
+    $(window).scrollTop(pointY);
+}

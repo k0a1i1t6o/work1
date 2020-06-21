@@ -1,0 +1,4 @@
+<% @like.each do |like| %>
+    <% @goalpost = Goalpost.find(like.goalpost_id) %>
+    <%= render @goalpost %>
+<% end %>

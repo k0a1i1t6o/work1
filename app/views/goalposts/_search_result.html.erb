@@ -1,0 +1,32 @@
+<div class="py-5 text-center">
+<div class="row" style="display:block;">
+<p class="close-btn right">✖︎</p>
+<div class="mx-auto col-lg-6 box" style="height: 80vh;">
+
+<div class="py-3 text-center" >
+    <div class="container">
+      <div class="row">
+        <% if @items.present? %>
+        <% @items.each do |item| %>
+        
+        <input type="radio" name="item_box" item_name="<%= item.name %>" value="<%= item['itemCode'] %>" id="<%= @i %>">
+        
+        <label for="<%= @i %>" class="col-lg-3 col-md-3 p-4">
+            <img class="" src="<%= item['smallImageUrls'][0] %>">
+            <div style="width: 100%">
+                <p class="mb-1" id="item_name"><%= item.name %></p>
+            </div>
+            <p class="mb-0"><%= number_with_delimiter(item.price) %>円</p>
+        </label>
+        
+        
+        <% @i+=1 %>
+        <% end %>
+        <% end %> 
+      </div>     
+    </div>    
+  </div>
+</div>
+<a id= 'search' class= 'btn btn-primary clearfix check'>選択する</a>
+</div>
+</div>

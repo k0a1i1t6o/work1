@@ -1,0 +1,197 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require font-awesome
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "./custom";
+@import "./goalposts";
+@import "./comments";
+@import "./users";
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: font-url('NotoSansJP-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Fonts
+* {
+    font-family: "Noto Sans JP";
+}
+
+html body{
+  height: 100%;
+}
+
+.bgc-w{
+  background-color: white;
+}
+
+.no-dec{
+  text-decoration: none;
+  color: initial;
+}
+
+.header{
+  top: 0;
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  opacity: 0.8;
+  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.bread{
+  padding: 25px 100px;
+}
+
+.bread a{
+  color: #777;
+}
+
+.bread a:hover{
+  color: #fcac45;
+  text-decoration: none;
+}
+
+body{
+  background-image: image-url("ecailles.png");
+  position: relative;
+  padding-bottom: 400px;
+  padding-top: 55px;
+  min-height: 100vh;
+  box-sizing: border-box;
+ }
+
+/**** header ****/
+#inv-bar{
+  width: 100%;
+  border: none;
+  border-radius: 0px;
+  color: black;
+}
+
+/**** top ****/
+.top-1 {
+  background-image: image-url("motivation.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 695px;
+}
+
+.top-2 {
+  height: 500px;
+}
+
+.p-row {
+  padding: 70px 0;
+}
+
+.section-title hr{
+  border-color: #fcac45;
+  border-width: 4px;
+  width: 60px;
+}
+
+.top-3 {
+  font-weight: 200;
+  height: 526px;
+  background-image: image-url("motivation-2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  color: white;
+}
+
+.top-3:before{
+  content: '';
+  background: inherit;
+  filter: blur(3px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  z-index: -1;/*重なり順序を一番下にしておく*/
+}
+
+.top-4{
+  height: 500px;
+}
+
+.text-Box{
+  width: 50%;
+}
+
+
+/* footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 50px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  background-color:#f6f7f8;
+  }
+
+  
+  .footer a {
+    color: #777;
+  }
+
+  .footer a:hover {
+    color: #fcac45;
+    text-decoration: none;
+  }
+  
+  footer small {
+    float: left;
+  }
+  
+  footer ul {
+    float: right;
+    list-style: none;
+  }
+  
+  footer ul li {
+    float: left;
+    margin-left: 15px;
+  }
+
+  .footer hr{
+    border-color: #fcac45;
+    border-width: 4px;
+    width: 25px;
+    margin-top: 0.5rem !important;
+  }
+
+
+  .btn-a{
+    background-color: #aaa; 
+    color: #fff;
+  }
+
+  .btn-a:hover{
+    color: #fff;
+  }

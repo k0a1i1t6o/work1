@@ -1,0 +1,44 @@
+<div class="line-bc">
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <% if comment.user == current_user %>    
+    <div class="mycomment">
+      <div class="text-right myname">
+      <%= link_to "#{comment.user.name}", user_path(comment.user.id), class:"text-dark user", style:"text-decoration: none;" %>
+      </div>
+      <div class="faceicon Box">
+          <%= link_to("", user_path(comment.user.id)) %>
+          <% if comment.user.picture? %>
+          <%= image_tag comment.user.picture.thumb30.url, style:"background-color: white;" %>
+          <% else %>
+          <%= image_tag 'no-image.png', size:'30x30' %>
+          <% end %>
+      </div>
+      <div class="myballoon"> 
+      <%= simple_format(comment.content, class: "mb-0") %>
+      <%= link_to fa_icon("trash", style:"color:grey;"),
+          goalpost_comment_path(comment.goalpost_id, comment.id),
+          method: :delete, remote: true, style:"float: right; margin-right: 10px;" %>
+      </div>
+    </div>
+    <% else %>
+    <div class="othercomment">
+      <div class="text-left othername">
+      <%= link_to "#{comment.user.name}", user_path(comment.user.id), class:"text-dark user", style:"text-decoration: none;" %>
+      </div>
+      <div class="faceicon Box">
+          <%= link_to("", user_path(comment.user.id)) %>
+          <% if comment.user.picture? %>
+          <%= image_tag comment.user.picture.thumb30.url, style:"background-color: white;" %>
+          <% else %>
+          <%= image_tag 'no-image.png', size:'30x30' %>
+          <% end %>
+      </div>
+      <div class="otherballoon">
+        <%= simple_format(comment.content, class: "mb-0") %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

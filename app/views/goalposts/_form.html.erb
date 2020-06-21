@@ -1,0 +1,13 @@
+<div class="py-5 text-center" >
+<div class="row py-5" style="display:block;">
+<p class="close-btn right">✖︎</p>
+<div class="mx-auto col-md-6 col-10 py-5 box" style="">    
+  <%= form_tag({action: 'new'}, method: :get, remote: true) do %>
+  <%= label_tag :keyword, 'キーワード検索' %>
+  <%= text_field_tag 'keyword', params[:keyword] %>
+</div>
+<%= submit_tag "検索", {id: 'search', class: 'btn btn-primary clearfix'} %>
+  <% end %>
+
+</div>
+</div>

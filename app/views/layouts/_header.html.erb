@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-light py-0 header">
+    <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#inv-bar" style="outline:none;">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="text-center">
+        <% if logged_in? %>
+        <%= link_to "Motif", home_path, class:"text-dark", style:"text-decoration: none; font-size: 1.5em;" %>
+        <% else %>
+            <%= link_to "Motif", root_path, class:"text-dark", style:"text-decoration: none; font-size: 1.5em;" %>
+        <% end %>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    
+                    <% if current_user.picture? %>
+                    <%= image_tag current_user.picture.thumb30.url, style:"background-color: white;", class:"pb-1 mr-2 rounded-circle" %>
+                    <% else %>
+                    <%= image_tag 'no-image.png', size: '30x30', class:"mr-2 rounded-circle" %>
+                    <% end %>
+                    
+                    <%= current_user.name %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"> <%= link_to "マイページ", current_user, class: "nav-link" %> </li>
+                    <li class="dropdown-item"> <%= link_to "プロフィールを編集", edit_user_path(current_user), class: "nav-link" %> </li>
+                    <li class="dropdown-item"> <%= link_to "ログアウト", logout_path, class: "nav-link", method: :delete %> </li>
+                </ul>
+            </li>
+        <% else %>
+            <li class="nav-item"> <%= link_to "ログイン", login_path, class: "nav-link" %> </li>
+            <li class="nav-item"> <%= link_to "新規登録", signup_path, class: "nav-link" %> </li>
+        <% end %>
+            
+        </ul>
+    </div>
+    </div>
+</nav>

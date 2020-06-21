@@ -1,0 +1,85 @@
+<div class="top"> 
+<div class="d-flex align-items-center top-1">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-md-6 mx-auto px-0">
+                <h2 class="text-white" style="text-shadow: 3px 3px 2px black">Motif</h2>
+                <p class="lead pb-1 text-white">目標を達成して自分にごほうびをあげよう。<br>
+                Motifは目標をみんなで応援し合えるサービスです。</p>
+                <div style="margin-top: 100px;">
+                <%= link_to "Motif を使う", signup_path, class:"f-btn" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top-2">
+    <div class="container">
+        <div class="row p-row" id="about">
+            <div class="text-center mx-auto">
+                <div class="py-3 section-title">
+                    <h2>みんなの目標を見てみよう</h2>
+                    <hr> 
+                </div>
+                <div class="py-4">
+                    <%= fa_icon("lightbulb-o 5x", style:"color:grey;") %>
+                    <p class="pt-5">
+                    みんなの目標にいいねやコメントをして応援しよう<br>
+                    みんなの頑張る姿を見て自分もやる気をもらおう
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top-3">
+    <div class="container">
+        <div class="row p-row">
+            <div class="text-center mx-auto">
+                <div class="py-3 section-title">
+                    <h2>目標を投稿しよう</h2>
+                    <hr> 
+                </div>
+                <div class="py-4">
+                    <%= fa_icon("calendar 5x") %>
+                    <p class="pt-5">
+                    目標と期間、達成できた時のごほうびを選択して目標を投稿しよう<br>
+                    </p>
+                </div>
+                <div style="margin-top: 20px;">
+                <%= link_to "Motif を始める", signup_path, class:"f-btn" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top-4">
+    <div class="container">
+        <div class="row p-row mt-5">
+            <div class="col-lg-12 text-center">
+                <h4 class="mb-5"> みんなと頑張りを共有することで、<br>
+                    やる気アップに繋がるのではという思いからMotifを作成しました。
+                </h4>
+                <%= image_tag 'profile-icon.jpg', size:'100x100', class:"rounded-circle mt-5 mb-3" %>
+                <div class="text-Box mx-auto">
+                <p>乙村 海斗　Otsumura Kaito</p>
+                <table class="text-left mx-auto">
+                    <tbody>
+                        <tr>
+                        <td>出身：</td>
+                        <td>京都府宇治市</td>
+                        </tr>
+                        <tr>
+                        <td class="p-0">学歴：</td>
+                        <td>立命館大学 情報理工学部<br>情報コミュニケーション学科</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,62 @@
+  <% provide(:title, "目標編集画面") %>
+<% breadcrumb :edit_goalpost, @goalpost %>
+  
+  <div class="py-5 text-center" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="section-title">
+            <h3>目標編集</h3>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto col-lg-6 col-10" style="">
+          <div class="text-left">
+            <%= form_for(@goalpost) do |f| %>
+              <div class="form-group">
+                <%= f.label :from, "いつから？" %>
+                <%= f.date_field :from, class: "form-control", id: "form16" %>
+              </div>
+              <div class="form-group"> 
+                <%= f.label :to, "いつまでに？"%>
+                <%= f.date_field :to, class: "form-control", id: "form17" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :goal, "何をしますか？"%>
+                <%= f.text_field :goal, class: "form-control", id: "form18", placeholder: "数学の宿題を終わらせる" %>   
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12" style=""> <label for="form20">ごほうびを選びましょう</label>
+                  <div class="input-group">
+                    <div class="input-group-append">
+                      <div>
+                      <button class="btn btn-primary" id= "r_select" type="button">楽天で検索</button>
+                      </div>
+                      <div id="check_result"></div>
+                      <%= f.hidden_field :reward, id: "reward" %>
+                    </div>                    
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :comment, "コメント" %>
+                <%= f.text_area :comment, class: "form-control", id: "form21", placeholder: "数学の宿題を終わらせる" %>   
+              </div>
+          </div>
+          <div class="py-3">
+            <%= f.submit "編集する", class: "btn w-50", style: "background-color: sandybrown" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="form">
+<%= render 'form' %>
+</div>
+<div id="search_result">
+<div id="result"></div>
+</div>

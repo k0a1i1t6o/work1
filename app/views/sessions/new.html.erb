@@ -1,0 +1,30 @@
+  <div class="py-5 text-center border-top" >
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-md-6 col-10 bg-white p-5">
+          <h4 class="border-bottom mx-auto col-md-12 py-4">ログイン</h4>
+          <div class="py-3">
+          <p>アカウントをお持ちでない方はこちら</p>
+          <%= link_to "新規会員登録", signup_path, class: "btn btn-info" %>
+          </div>
+          <%= form_for(:session, url: login_path) do |f| %>
+          <div class="py-3">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'メールアドレス' %>
+        </div>
+        <div class="py-3">
+            <%= f.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
+        </div>
+        <div class="py-3">
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me, class: "form-check-input" %>
+                <span>ログイン情報を保存</span>
+            <% end %>
+        </div>
+        <div class="py-3">
+            <%= f.submit "ログイン", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

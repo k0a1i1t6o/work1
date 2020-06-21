@@ -1,0 +1,21 @@
+<% @item = RakutenWebService::Ichiba::Item.search(itemCode: goalpost.reward) %>
+  <% @item.each do |item| %>
+    <div class="col-md-4 col-lg-2">     
+      <div class="mb-4 text-dark Box g-Box" style="text-decoration: none;">
+        <%= link_to "", "/goalposts/#{goalpost.id}", method: :get %>
+        <img class="pt-2" style="width: 90px; height: 90px; object-fit: contain;" src="<%= item['mediumImageUrls'][0] %>"> 
+        <div class="item-box pt-2">
+          <div class="pt-1 px-1 text-left" style="height: 3rem; display:inline-block;">
+            <%= goalpost.goal %>            
+          </div>
+          <div class="pt-1 <%= 'text-danger' if time_left(goalpost) == "残り1日" %>">
+            <%= time_left(goalpost) %>
+          </div>
+          <div class="pt-1">
+            <%= image_tag("icon_heart.png", class:"pb-1")  %>
+            <%= goalpost.likes_count %>           
+          </div>
+        </div>
+      </div>      
+    </div>
+<% end %>

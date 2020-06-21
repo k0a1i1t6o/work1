@@ -1,0 +1,82 @@
+<% provide(:title, "目標画面") %>
+<% breadcrumb :goalpost, @goalpost %>
+
+<div class="position-fixed r-32 b-32" style="z-index: 10;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 Box btn btn-dark btn-lg">
+          <%= link_to "", "/set", method: :get %>
+          <div>
+            <p style="font-size: 16px;">目標を設定する</p>
+            <%= fa_icon("calendar 3x") %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="pb-5">
+    <div class="container text-center">
+        <div class="row border mx-auto mb-3 bgc-w" style="width: 750px; border-radius: 8px;">
+            <div class="text-center mx-auto col-lg-10">
+                <div class="section-title py-3">
+                    <h3><%= @goalpost.goal %></h3>
+                    <hr>
+                </div>
+                <div class="mx-auto pb-2">
+                <% @item.each do |item| %>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 pr-0">
+                            <img class="align-middle" style="width: 90px; height: 90px; object-fit: contain;" src="<%= item['mediumImageUrls'][0] %>"> 
+                             <div class="pt-3 <%= 'text-danger' if time_left(@goalpost) == "残り1日" %>">
+                            <%= time_left(@goalpost) %>
+                            </div>
+                            <div class="pt-2">
+                            <%= render partial: 'likes/like', locals: { goalpost: @goalpost, likes: @likes } %>
+                            </div>
+    
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+
+                        <table class="table table-bordered" style="table-layout:fixed; font-size:13px;">
+                            <tbody class="text-left g-tbody">
+                                <tr>
+                                <th class="align-middle" style="width: 100px;">投稿者</th>
+                                <td><%= link_to @goalpost.user.name, @goalpost.user %></td>
+                                </tr>
+                                <tr>
+                                <th class="align-middle">ごほうび</th>
+                                <td><%= link_to item.name, "#{item.url}" %></td>
+                                </tr>
+                                <tr>
+                                <th class="align-middle">意気込み</th>
+                                <td><%= simple_format(@goalpost.comment, class:"mb-0") %></td>
+                                </tr>
+                            </tbody>
+                         </table>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+
+            </div>
+        </div>
+        <div class="row border mx-auto mb-3 bgc-w" style="width: 750px; border-radius: 8px;">
+            <% if current_user?(@goalpost.user) %>
+                <div class="text-center mx-auto col-lg-12">
+                    <%= link_to "目標の編集", edit_goalpost_path(@goalpost), class: "btn btn-a btn-lg my-2", style:"width: 90%; font-size: 14px; background-color: #fcac45;", method: :get %>
+                    <%= link_to "この目標を削除する", @goalpost, method: :delete,
+                                                    data: { confirm: "本当に削除しますか?" }, class: "btn btn-a btn-lg my-2", style:"width: 90%; font-size: 14px;" %>   
+                </div>
+            <% end %> 
+        </div>
+        <div class="row border mx-auto bgc-w" style="width: 750px; border-radius: 8px;">
+            <div class="text-center px-auto col-lg-12">
+                    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+                <% if logged_in? %>
+                    <%= render partial: 'comments/form', locals: { comment: @comment, goalpost: @goalpost } %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
