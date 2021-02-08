@@ -26,7 +26,7 @@ gem 'gretel'
 
 gem 'counter_culture', '~> 1.8'
 
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave', '1.3.2'
 gem 'rmagick'
 gem 'rakuten_web_service'
 # See https://github.com/rails/execjs#readme for more supported runtimes
